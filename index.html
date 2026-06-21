@@ -187,6 +187,39 @@
     .tag-milestone { background: rgba(100,50,200,0.12); color: #5a2fbf; }
     .tag-opportunity { background: rgba(0,150,136,0.12); color: #00796b; }
 
+    /* ─── PINNED ─── */
+    .entry-card.pinned {
+      border-color: #d4a000;
+      box-shadow: 0 4px 20px rgba(212,160,0,0.15);
+    }
+    .entry-card.pinned .entry-header {
+      background: linear-gradient(135deg, #fffde7, #fff9c4);
+    }
+    .pinned-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #a07800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+    .pinned-bar span { font-size: 14px; }
+
+    /* ─── NEWEST FIRST LABEL ─── */
+    .feed-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--mid-gray);
+      margin-bottom: 4px;
+    }
+
     .entry-number {
       font-size: 11px;
       font-weight: 700;
@@ -431,10 +464,11 @@
   <!-- ENTRIES FEED -->
   <div class="entries-feed">
 
-    <!-- ─── ENTRY 001 ─── -->
-    <article class="entry-card">
+    <!-- ─── PINNED ENTRY 001 ─── -->
+    <article class="entry-card pinned">
       <div class="entry-header">
         <div class="entry-meta">
+          <div class="pinned-bar"><span>📌</span> Pinned Post</div>
           <div class="entry-date-row">
             <span class="entry-date">June 21, 2026</span>
             <span class="entry-dot">●</span>
@@ -472,7 +506,33 @@
       </div>
     </article>
 
-    <!-- future entries go above this comment -->
+    <!-- ─────────────────────────────────────────────────────────────
+         NEW ENTRIES GO HERE — newest first, above this comment block
+         Copy the template below for each new post:
+
+    <article class="entry-card">
+      <div class="entry-header">
+        <div class="entry-meta">
+          <div class="entry-date-row">
+            <span class="entry-date">Month DD, YYYY</span>
+            <span class="entry-dot">●</span>
+            <span class="entry-tag tag-CATEGORY">Category</span>
+          </div>
+          <h2 class="entry-title">Post Title Here</h2>
+        </div>
+        <div class="entry-number">#00X</div>
+      </div>
+      <div class="entry-body">
+        <p>Post content here.</p>
+      </div>
+      <div class="entry-footer">
+        <span class="entry-footer-note">Footer note</span>
+        <span class="entry-footer-sig">— The Emergency Cleanings Team</span>
+      </div>
+    </article>
+
+    Categories: tag-announcement / tag-pay / tag-ops / tag-policy / tag-milestone / tag-opportunity
+    ───────────────────────────────────────────────────────────── -->
 
   </div>
 
@@ -511,64 +571,4 @@
           <span class="cat-pill tag-policy">Policy</span>
           <span class="cat-pill tag-milestone">Milestone</span>
           <span class="cat-pill tag-opportunity">Opportunity</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div class="sidebar-cta">
-      <h3>Not on the network yet?</h3>
-      <p>Join hundreds of independent techs already earning with Emergency Cleanings.</p>
-      <a href="https://techs.emergencycleanings.com#apply" class="btn-yellow">Apply to Join →</a>
-    </div>
-
-    <!-- Contact -->
-    <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <h3>📞 Contact Dispatch</h3>
-      </div>
-      <div class="sidebar-card-body">
-        <p style="font-size: 14px; color: #555; margin-bottom: 12px; line-height: 1.6;">Questions about a job, payment, or anything in these updates?</p>
-        <a href="tel:8333464652" style="font-size: 20px; font-weight: 800; color: var(--dark-blue); text-decoration: none; display: block; margin-bottom: 6px;">833-346-4652</a>
-        <p style="font-size: 12px; color: #888;">Available during dispatch hours</p>
-      </div>
-    </div>
-
-  </aside>
-
-</div>
-
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height: 32px; width: auto; margin-bottom: 8px; filter: brightness(0) invert(1);" />
-      <p>The leading specialty cleaning network for independent technicians. Emergency Cleanings handles the business side — you handle the work.</p>
-    </div>
-    <div>
-      <h4>For Techs</h4>
-      <ul>
-        <li><a href="https://techs.emergencycleanings.com#apply">Apply to Join</a></li>
-        <li><a href="https://techs.emergencycleanings.com">Tech Portal</a></li>
-        <li><a href="#">Payment FAQ</a></li>
-        <li><a href="#">Support</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Company</h4>
-      <ul>
-        <li><a href="https://emergencycleanings.com">Main Site</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Emergency Cleanings. All rights reserved.</p>
-    <p>tech-news.emergencycleanings.com</p>
-  </div>
-</footer>
-
-</body>
-</html>
+        </div
