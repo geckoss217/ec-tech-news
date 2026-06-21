@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EC Tech News &amp; Updates</title>
+    <link>https://tech-news.emergencycleanings.com</link>
+    <atom:link href="https://tech-news.emergencycleanings.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>Official news and updates for Emergency Cleanings technicians — pay changes, policy updates, network milestones, and more.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Jun 2026 12:00:00 +0000</lastBuildDate>
+    <managingEditor>dispatch@emergencycleanings.com (Emergency Cleanings)</managingEditor>
+    <webMaster>dispatch@emergencycleanings.com (Emergency Cleanings)</webMaster>
+    <image>
+      <url>https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png</url>
+      <title>EC Tech News &amp; Updates</title>
+      <link>https://tech-news.emergencycleanings.com</link>
+    </image>
+
+    <!-- NEW ITEMS GO HERE — newest first -->
+
+    <item>
+      <title>Welcome to the EC Tech Updates Page</title>
+      <link>https://tech-news.emergencycleanings.com/#post-001</link>
+      <guid isPermaLink="true">https://tech-news.emergencycleanings.com/#post-001</guid>
+      <pubDate>Sat, 21 Jun 2026 12:00:00 +0000</pubDate>
+      <category>Announcement</category>
+      <description><![CDATA[
+        <p>We're launching this page as a dedicated home for everything you need to stay informed as part of the Emergency Cleanings tech network. Whether it's a policy update, a pay change, a new opportunity, or news about where the network is headed — you'll find it here first.</p>
+        <p>Bookmark this page. This is now the official source for network updates. We'll post here before pushing anything out by phone or text.</p>
+        <p><a href="https://tech-news.emergencycleanings.com">Read the full post →</a></p>
+      ]]></description>
+    </item>
+
+  </channel>
+</rss>
