@@ -162,8 +162,6 @@
       border-radius: 9999px;
       font-weight: 800;
       font-size: 15px;
-      border: none;
-      cursor: pointer;
       text-decoration: none;
       display: inline-block;
       transition: opacity 0.2s, transform 0.1s;
@@ -181,6 +179,46 @@
       gap: 48px;
       align-items: start;
     }
+
+    /* MAIN COLUMN wraps filter + feed */
+    .main-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    /* FILTER BAR */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+    }
+    .filter-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .filter-pill.all { background: var(--dark-blue); color: var(--white); border-color: var(--dark-blue); }
+    .filter-pill.all.inactive { background: var(--white); color: var(--dark-blue); }
+    .filter-pill:not(.all) { background: var(--white); color: #666; border-color: var(--mid-gray); }
+    .filter-pill:not(.all).active { border-color: currentColor; background: rgba(0,0,0,0.04); }
+    .filter-pill:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 
     /* ENTRIES FEED */
     .entries-feed { display: flex; flex-direction: column; gap: 32px; }
@@ -208,12 +246,7 @@
     }
     .entry-meta { display: flex; flex-direction: column; gap: 8px; }
     .entry-date-row { display: flex; align-items: center; gap: 10px; }
-    .entry-date {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--blue);
-      letter-spacing: 0.3px;
-    }
+    .entry-date { font-size: 13px; font-weight: 600; color: var(--blue); letter-spacing: 0.3px; }
     .entry-dot { color: var(--mid-gray); font-size: 10px; }
     .entry-tag {
       display: inline-block;
@@ -232,13 +265,8 @@
     .tag-opportunity { background: rgba(0,150,136,0.12); color: #00796b; }
 
     /* PINNED */
-    .entry-card.pinned {
-      border-color: #d4a000;
-      box-shadow: 0 4px 20px rgba(212,160,0,0.15);
-    }
-    .entry-card.pinned .entry-header {
-      background: linear-gradient(135deg, #fffde7, #fff9c4);
-    }
+    .entry-card.pinned { border-color: #d4a000; box-shadow: 0 4px 20px rgba(212,160,0,0.15); }
+    .entry-card.pinned .entry-header { background: linear-gradient(135deg, #fffde7, #fff9c4); }
     .pinned-bar {
       display: flex;
       align-items: center;
@@ -252,71 +280,14 @@
     }
     .pinned-bar span { font-size: 14px; }
 
-    /* FILTER BAR */
-    .filter-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-    .filter-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: #999;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      white-space: nowrap;
-    }
-    .filter-pill {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 9999px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: all 0.15s;
-      user-select: none;
-    }
-    .filter-pill.all { background: var(--dark-blue); color: var(--white); border-color: var(--dark-blue); }
-    .filter-pill.all.inactive { background: var(--white); color: var(--dark-blue); }
-    .filter-pill:not(.all) { background: var(--white); color: #666; border-color: var(--mid-gray); }
-    .filter-pill:not(.all).active { border-color: currentColor; background: rgba(0,0,0,0.04); }
-    .filter-pill:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-
-    .entry-number {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--mid-gray);
-      letter-spacing: 0.5px;
-      white-space: nowrap;
-      margin-top: 4px;
-    }
-
-    .entry-title {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--dark-blue);
-      line-height: 1.25;
-      margin-bottom: 0;
-    }
+    .entry-number { font-size: 11px; font-weight: 700; color: var(--mid-gray); letter-spacing: 0.5px; white-space: nowrap; margin-top: 4px; }
+    .entry-title { font-size: 22px; font-weight: 800; color: var(--dark-blue); line-height: 1.25; margin-bottom: 0; }
 
     .entry-body { padding: 24px 32px 28px; }
-    .entry-body p {
-      font-size: 15px;
-      color: #444;
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
+    .entry-body p { font-size: 15px; color: #444; line-height: 1.7; margin-bottom: 16px; }
     .entry-body p:last-child { margin-bottom: 0; }
     .entry-body ul { margin: 0 0 16px 0; padding-left: 20px; }
-    .entry-body ul li {
-      font-size: 15px;
-      color: #444;
-      line-height: 1.65;
-      margin-bottom: 8px;
-    }
+    .entry-body ul li { font-size: 15px; color: #444; line-height: 1.65; margin-bottom: 8px; }
     .entry-highlight {
       background: rgba(47,100,231,0.06);
       border-left: 4px solid var(--blue);
@@ -327,11 +298,7 @@
       color: var(--dark-blue);
       font-weight: 500;
     }
-    .entry-highlight.yellow {
-      background: rgba(254,242,46,0.18);
-      border-left-color: #d4a000;
-      color: #5a3e00;
-    }
+    .entry-highlight.yellow { background: rgba(254,242,46,0.18); border-left-color: #d4a000; color: #5a3e00; }
     .entry-footer {
       padding: 16px 32px;
       background: var(--light-gray);
@@ -345,51 +312,21 @@
 
     /* SIDEBAR */
     .sidebar { display: flex; flex-direction: column; gap: 28px; }
-    .sidebar-card {
-      background: var(--white);
-      border: 1.5px solid var(--mid-gray);
-      border-radius: 16px;
-      overflow: hidden;
-    }
+    .sidebar-card { background: var(--white); border: 1.5px solid var(--mid-gray); border-radius: 16px; overflow: hidden; }
     .sidebar-card-header { background: var(--dark-blue); padding: 16px 20px; }
-    .sidebar-card-header h3 {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--white);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+    .sidebar-card-header h3 { font-size: 13px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.5px; }
     .sidebar-card-body { padding: 20px; }
 
     .archive-list { list-style: none; }
-    .archive-list li {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--light-gray);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
+    .archive-list li { padding: 10px 0; border-bottom: 1px solid var(--light-gray); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .archive-list li:last-child { border-bottom: none; padding-bottom: 0; }
     .archive-date { font-size: 13px; font-weight: 600; color: var(--dark-blue); }
     .archive-title { font-size: 12px; color: #666; line-height: 1.4; flex: 1; }
 
     .cat-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .cat-pill {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 12px;
-      border-radius: 9999px;
-      cursor: default;
-    }
+    .cat-pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 9999px; cursor: default; }
 
-    .sidebar-cta {
-      background: linear-gradient(135deg, var(--dark-blue), #1a3260);
-      border-radius: 16px;
-      padding: 28px 22px;
-      text-align: center;
-    }
+    .sidebar-cta { background: linear-gradient(135deg, var(--dark-blue), #1a3260); border-radius: 16px; padding: 28px 22px; text-align: center; }
     .sidebar-cta h3 { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 10px; }
     .sidebar-cta p { font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; line-height: 1.6; }
     .btn-yellow-sm {
@@ -407,61 +344,23 @@
 
     /* FOOTER */
     footer { background: var(--dark-blue); color: rgba(255,255,255,0.8); padding: 48px 24px 28px; }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 36px;
-    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
     .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 14px; max-width: 280px; }
     footer h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
     footer ul { list-style: none; }
     footer ul li { margin-bottom: 8px; }
     footer ul li a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
     footer ul li a:hover { color: var(--yellow); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
     .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.4); }
 
     /* SUBSCRIBE BAR */
-    .subscribe-bar {
-      background: var(--light-gray);
-      border-bottom: 1.5px solid var(--mid-gray);
-      padding: 18px 24px;
-    }
-    .subscribe-bar-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+    .subscribe-bar { background: var(--light-gray); border-bottom: 1.5px solid var(--mid-gray); padding: 18px 24px; }
+    .subscribe-bar-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     .subscribe-bar-label { font-size: 14px; font-weight: 600; color: var(--dark-blue); }
     .subscribe-bar-label span { font-weight: 400; color: #666; margin-left: 6px; }
     .subscribe-options { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .subscribe-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 9px 18px;
-      border-radius: 9999px;
-      text-decoration: none;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
+    .subscribe-btn { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 9999px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
     .subscribe-btn.rss { background: #f26522; color: var(--white); }
     .subscribe-btn.rss:hover { background: #d4541a; transform: translateY(-1px); }
     .subscribe-btn.email { background: var(--white); color: var(--dark-blue); border: 2px solid var(--dark-blue); }
@@ -489,13 +388,13 @@
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a href="https://emergencycleanings.com" style="margin: 0; gap: 0; flex-shrink: 0; text-decoration: none;">
-      <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height: 75px; width: auto;" />
+    <a href="https://emergencycleanings.com" style="flex-shrink:0; text-decoration:none;">
+      <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height:75px; width:auto;" />
     </a>
-    <div style="flex: 1; text-align: center;">
-      <div style="font-size: 26px; font-weight: 800; color: var(--dark-blue); line-height: 1.1;">Tech News &amp; Updates</div>
+    <div style="flex:1; text-align:center;">
+      <div style="font-size:26px; font-weight:800; color:var(--dark-blue); line-height:1.1;">Tech News &amp; Updates</div>
     </div>
-    <div style="display: flex; align-items: center; gap: 20px; flex-shrink: 0;">
+    <div style="display:flex; align-items:center; gap:20px; flex-shrink:0;">
       <a href="tel:8333464652" class="header-phone">&#128222; 833-346-4652</a>
       <a href="https://emergencycleanings.com/tech-page/" class="btn-primary">Apply Now</a>
     </div>
@@ -540,98 +439,92 @@
 <!-- MAIN CONTENT -->
 <div class="news-layout">
 
-  <!-- CATEGORY FILTER -->
-  <div class="filter-bar" id="filterBar">
-    <span class="filter-label">Filter:</span>
-    <span class="filter-pill all" data-filter="all">All Updates</span>
-    <span class="filter-pill tag-announcement" data-filter="announcement">Announcement</span>
-    <span class="filter-pill tag-pay" data-filter="pay">Pay &amp; Earnings</span>
-    <span class="filter-pill tag-ops" data-filter="ops">Operations</span>
-    <span class="filter-pill tag-policy" data-filter="policy">Policy</span>
-    <span class="filter-pill tag-milestone" data-filter="milestone">Milestone</span>
-    <span class="filter-pill tag-opportunity" data-filter="opportunity">Opportunity</span>
-  </div>
+  <!-- LEFT: filter + feed wrapped together -->
+  <div class="main-col">
 
-  <!-- ENTRIES FEED -->
-  <div class="entries-feed" id="entriesFeed">
+    <div class="filter-bar" id="filterBar">
+      <span class="filter-label">Filter:</span>
+      <span class="filter-pill all" data-filter="all">All Updates</span>
+      <span class="filter-pill tag-announcement" data-filter="announcement">Announcement</span>
+      <span class="filter-pill tag-pay" data-filter="pay">Pay &amp; Earnings</span>
+      <span class="filter-pill tag-ops" data-filter="ops">Operations</span>
+      <span class="filter-pill tag-policy" data-filter="policy">Policy</span>
+      <span class="filter-pill tag-milestone" data-filter="milestone">Milestone</span>
+      <span class="filter-pill tag-opportunity" data-filter="opportunity">Opportunity</span>
+    </div>
 
-    <!-- NEW ENTRIES GO HERE - newest first, above the pinned post
+    <div class="entries-feed" id="entriesFeed">
 
-    <article class="entry-card" data-category="CATEGORY">
-      <div class="entry-header">
-        <div class="entry-meta">
-          <div class="entry-date-row">
-            <span class="entry-date">Month DD, YYYY</span>
-            <span class="entry-dot">&#9679;</span>
-            <span class="entry-tag tag-CATEGORY">Category</span>
+      <!-- NEW ENTRIES GO HERE - newest first, above pinned
+
+      <article class="entry-card" data-category="CATEGORY">
+        <div class="entry-header">
+          <div class="entry-meta">
+            <div class="entry-date-row">
+              <span class="entry-date">Month DD, YYYY</span>
+              <span class="entry-dot">&#9679;</span>
+              <span class="entry-tag tag-CATEGORY">Category</span>
+            </div>
+            <h2 class="entry-title">Post Title Here</h2>
           </div>
-          <h2 class="entry-title">Post Title Here</h2>
+          <div class="entry-number">#00X</div>
         </div>
-        <div class="entry-number">#00X</div>
-      </div>
-      <div class="entry-body">
-        <p>Post content here.</p>
-      </div>
-      <div class="entry-footer">
-        <span class="entry-footer-note">Footer note</span>
-        <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
-      </div>
-    </article>
+        <div class="entry-body"><p>Content here.</p></div>
+        <div class="entry-footer">
+          <span class="entry-footer-note">Footer note</span>
+          <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
+        </div>
+      </article>
 
-    Categories: tag-announcement / tag-pay / tag-ops / tag-policy / tag-milestone / tag-opportunity
-    -->
+      Categories: tag-announcement / tag-pay / tag-ops / tag-policy / tag-milestone / tag-opportunity
+      -->
 
-    <!-- PINNED ENTRY 001 -->
-    <article class="entry-card pinned" data-category="announcement">
-      <div class="entry-header">
-        <div class="entry-meta">
-          <div class="pinned-bar"><span>&#128204;</span> Pinned Post</div>
-          <div class="entry-date-row">
-            <span class="entry-date">June 21, 2026</span>
-            <span class="entry-dot">&#9679;</span>
-            <span class="entry-tag tag-announcement">Announcement</span>
+      <!-- PINNED ENTRY 001 -->
+      <article class="entry-card pinned" data-category="announcement">
+        <div class="entry-header">
+          <div class="entry-meta">
+            <div class="pinned-bar"><span>&#128204;</span> Pinned Post</div>
+            <div class="entry-date-row">
+              <span class="entry-date">June 21, 2026</span>
+              <span class="entry-dot">&#9679;</span>
+              <span class="entry-tag tag-announcement">Announcement</span>
+            </div>
+            <h2 class="entry-title">Welcome to the EC Tech Updates Page</h2>
           </div>
-          <h2 class="entry-title">Welcome to the EC Tech Updates Page</h2>
+          <div class="entry-number">#001</div>
         </div>
-        <div class="entry-number">#001</div>
-      </div>
-      <div class="entry-body">
-        <p>We're launching this page as a dedicated home for everything you need to stay informed as part of the Emergency Cleanings tech network. Whether it's a policy update, a pay change, a new opportunity, or news about where the network is headed &mdash; you'll find it here first.</p>
-
-        <div class="entry-highlight">
-          <strong>Bookmark this page.</strong> This is now the official source for network updates. We'll post here before pushing anything out by phone or text.
+        <div class="entry-body">
+          <p>We're launching this page as a dedicated home for everything you need to stay informed as part of the Emergency Cleanings tech network. Whether it's a policy update, a pay change, a new opportunity, or news about where the network is headed &mdash; you'll find it here first.</p>
+          <div class="entry-highlight">
+            <strong>Bookmark this page.</strong> This is now the official source for network updates. We'll post here before pushing anything out by phone or text.
+          </div>
+          <p>Here's what you can expect from these updates going forward:</p>
+          <ul>
+            <li><strong>Pay &amp; Earnings</strong> &mdash; any changes to job rates, payment cycles, or bonus structures</li>
+            <li><strong>Policy Updates</strong> &mdash; changes to how jobs are assigned, completed, or reported</li>
+            <li><strong>Network Growth</strong> &mdash; new markets, new job types, and milestones we hit together</li>
+            <li><strong>Opportunities</strong> &mdash; premium jobs, certifications, and ways to earn more</li>
+            <li><strong>Operations</strong> &mdash; scheduling, dispatch, and process improvements that affect your day-to-day</li>
+          </ul>
+          <p>We started this network to build something that actually works for independent techs &mdash; reliable jobs, consistent pay, real support. This page is part of that commitment. We'll be transparent, direct, and timely.</p>
+          <div class="entry-highlight yellow">
+            Got feedback or something you want us to address in a future update? Call dispatch at 833-346-4652 or reach out directly. We read everything.
+          </div>
         </div>
-
-        <p>Here's what you can expect from these updates going forward:</p>
-        <ul>
-          <li><strong>Pay &amp; Earnings</strong> &mdash; any changes to job rates, payment cycles, or bonus structures</li>
-          <li><strong>Policy Updates</strong> &mdash; changes to how jobs are assigned, completed, or reported</li>
-          <li><strong>Network Growth</strong> &mdash; new markets, new job types, and milestones we hit together</li>
-          <li><strong>Opportunities</strong> &mdash; premium jobs, certifications, and ways to earn more</li>
-          <li><strong>Operations</strong> &mdash; scheduling, dispatch, and process improvements that affect your day-to-day</li>
-        </ul>
-
-        <p>We started this network to build something that actually works for independent techs &mdash; reliable jobs, consistent pay, real support. This page is part of that commitment. We'll be transparent, direct, and timely.</p>
-
-        <div class="entry-highlight yellow">
-          Got feedback or something you want us to address in a future update? Call dispatch at 833-346-4652 or reach out directly. We read everything.
+        <div class="entry-footer">
+          <span class="entry-footer-note">First post &mdash; more updates coming regularly</span>
+          <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
         </div>
-      </div>
-      <div class="entry-footer">
-        <span class="entry-footer-note">First post &mdash; more updates coming regularly</span>
-        <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
-      </div>
-    </article>
+      </article>
 
-  </div>
+    </div><!-- /entries-feed -->
+  </div><!-- /main-col -->
 
-  <!-- SIDEBAR -->
+  <!-- RIGHT: sidebar -->
   <aside class="sidebar">
 
     <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <h3>&#128197; Recent Updates</h3>
-      </div>
+      <div class="sidebar-card-header"><h3>&#128197; Recent Updates</h3></div>
       <div class="sidebar-card-body">
         <ul class="archive-list">
           <li>
@@ -639,16 +532,14 @@
               <div class="archive-date">Jun 21, 2026</div>
               <div class="archive-title">Welcome to Tech Updates</div>
             </div>
-            <span class="entry-tag tag-announcement" style="font-size:10px; padding: 2px 8px;">New</span>
+            <span class="entry-tag tag-announcement" style="font-size:10px;padding:2px 8px;">New</span>
           </li>
         </ul>
       </div>
     </div>
 
     <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <h3>&#127991;&#65039; Update Types</h3>
-      </div>
+      <div class="sidebar-card-header"><h3>&#127991;&#65039; Update Types</h3></div>
       <div class="sidebar-card-body">
         <div class="cat-list">
           <span class="cat-pill tag-announcement">Announcement</span>
@@ -668,25 +559,23 @@
     </div>
 
     <div class="sidebar-card">
-      <div class="sidebar-card-header">
-        <h3>&#128222; Contact Dispatch</h3>
-      </div>
+      <div class="sidebar-card-header"><h3>&#128222; Contact Dispatch</h3></div>
       <div class="sidebar-card-body">
-        <p style="font-size: 14px; color: #555; margin-bottom: 12px; line-height: 1.6;">Questions about a job, payment, or anything in these updates?</p>
-        <a href="tel:8333464652" style="font-size: 20px; font-weight: 800; color: var(--dark-blue); text-decoration: none; display: block; margin-bottom: 6px;">833-346-4652</a>
-        <p style="font-size: 12px; color: #888;">Available during dispatch hours</p>
+        <p style="font-size:14px;color:#555;margin-bottom:12px;line-height:1.6;">Questions about a job, payment, or anything in these updates?</p>
+        <a href="tel:8333464652" style="font-size:20px;font-weight:800;color:var(--dark-blue);text-decoration:none;display:block;margin-bottom:6px;">833-346-4652</a>
+        <p style="font-size:12px;color:#888;">Available during dispatch hours</p>
       </div>
     </div>
 
   </aside>
 
-</div>
+</div><!-- /news-layout -->
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height: 32px; width: auto; margin-bottom: 8px; filter: brightness(0) invert(1);" />
+      <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height:32px;width:auto;margin-bottom:8px;filter:brightness(0) invert(1);" />
       <p>The leading specialty cleaning network for independent technicians. Emergency Cleanings handles the business side &mdash; you handle the work.</p>
     </div>
     <div>
@@ -717,7 +606,6 @@
 <script>
   const pills = document.querySelectorAll('.filter-pill');
   const feed = document.getElementById('entriesFeed');
-
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       const filter = pill.dataset.filter;
