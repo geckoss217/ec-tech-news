@@ -7,8 +7,8 @@
     <description>Official news and updates for Emergency Cleanings technicians — pay changes, policy updates, network milestones, and more.</description>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Jun 2026 12:00:00 +0000</lastBuildDate>
-    <managingEditor>dispatch@emergencycleanings.com (Emergency Cleanings)</managingEditor>
-    <webMaster>dispatch@emergencycleanings.com (Emergency Cleanings)</webMaster>
+    <managingEditor>tech-updates@emergencycleanings.com (Emergency Cleanings)</managingEditor>
+    <webMaster>tech-updates@emergencycleanings.com (Emergency Cleanings)</webMaster>
     <image>
       <url>https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png</url>
       <title>EC Tech News &amp; Updates</title>
@@ -31,4 +31,3 @@
     </item>
 
   </channel>
-</rss>
