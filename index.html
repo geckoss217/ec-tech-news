@@ -208,17 +208,74 @@
     }
     .pinned-bar span { font-size: 14px; }
 
-    /* ─── NEWEST FIRST LABEL ─── */
-    .feed-label {
+    /* ─── FILTER BAR ─── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .filter-label {
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       color: #999;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--mid-gray);
-      margin-bottom: 4px;
+      white-space: nowrap;
     }
+    .filter-pill {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .filter-pill.all { background: var(--dark-blue); color: var(--white); border-color: var(--dark-blue); }
+    .filter-pill.all.inactive { background: var(--white); color: var(--dark-blue); }
+    .filter-pill:not(.all) { background: var(--white); color: #666; border-color: var(--mid-gray); }
+    .filter-pill:not(.all).active { border-color: currentColor; background: rgba(0,0,0,0.04); }
+    .filter-pill:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+    /* ─── APPLY CTA BAND (always visible) ─── */
+    .apply-band {
+      background: var(--yellow);
+      border-radius: 14px;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+    .apply-band-text h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--dark-blue);
+      margin-bottom: 2px;
+    }
+    .apply-band-text p {
+      font-size: 13px;
+      color: var(--dark-blue);
+      opacity: 0.7;
+    }
+    .btn-dark {
+      background: var(--dark-blue);
+      color: var(--white);
+      padding: 11px 24px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-dark:hover { background: #1a3260; transform: translateY(-2px); }
 
     .entry-number {
       font-size: 11px;
@@ -535,50 +592,25 @@
 <!-- ── MAIN CONTENT ── -->
 <div class="news-layout">
 
-  <!-- ENTRIES FEED -->
-  <div class="entries-feed">
+  <!-- APPLY CTA -->
+  <div class="apply-band">
+    <div class="apply-band-text">
+      <h3>Not on the network yet?</h3>
+      <p>Join hundreds of independent techs already earning with Emergency Cleanings.</p>
+    </div>
+    <a href="https://emergencycleanings.com/tech-page/" class="btn-dark">Apply to Join →</a>
+  </div>
 
-    <!-- ─── PINNED ENTRY 001 ─── -->
-    <article class="entry-card pinned">
-      <div class="entry-header">
-        <div class="entry-meta">
-          <div class="pinned-bar"><span>📌</span> Pinned Post</div>
-          <div class="entry-date-row">
-            <span class="entry-date">June 21, 2026</span>
-            <span class="entry-dot">●</span>
-            <span class="entry-tag tag-announcement">Announcement</span>
-          </div>
-          <h2 class="entry-title">Welcome to the EC Tech Updates Page</h2>
-        </div>
-        <div class="entry-number">#001</div>
-      </div>
-      <div class="entry-body">
-        <p>We're launching this page as a dedicated home for everything you need to stay informed as part of the Emergency Cleanings tech network. Whether it's a policy update, a pay change, a new opportunity, or news about where the network is headed — you'll find it here first.</p>
+  <!-- CATEGORY FILTER -->
+  <div class="filter-bar" id="filterBar">
+    <span class="filter-label">Filter:</span>
+    <span class="filter-pill all" data-filter="all">All Updates</span>
+    <span class="filter-pill tag-announcement" data-filter="announcement">Announcement</span>
+    <span class="filter-pill tag-pay" data-filter="pay">Pay & Earnings</span>
+    <span class="filter-pill tag-ops" data-filter="ops">Operations</span>
+    <span class="filter-pill tag-policy" data-filter="policy">Policy</span>
+    <span class="filter-pill tag-milestone" data-filter="milestone">Milestone</span>
+    <span class="filter-pill tag-opportunity" data-filter="opportunity">Opportunity</span>
+  </div>
 
-        <div class="entry-highlight">
-          <strong>Bookmark this page.</strong> This is now the official source for network updates. We'll post here before pushing anything out by phone or text.
-        </div>
-
-        <p>Here's what you can expect from these updates going forward:</p>
-        <ul>
-          <li><strong>Pay & Earnings</strong> — any changes to job rates, payment cycles, or bonus structures</li>
-          <li><strong>Policy Updates</strong> — changes to how jobs are assigned, completed, or reported</li>
-          <li><strong>Network Growth</strong> — new markets, new job types, and milestones we hit together</li>
-          <li><strong>Opportunities</strong> — premium jobs, certifications, and ways to earn more</li>
-          <li><strong>Operations</strong> — scheduling, dispatch, and process improvements that affect your day-to-day</li>
-        </ul>
-
-        <p>We started this network to build something that actually works for independent techs — reliable jobs, consistent pay, real support. This page is part of that commitment. We'll be transparent, direct, and timely.</p>
-
-        <div class="entry-highlight yellow">
-          Got feedback or something you want us to address in a future update? Call dispatch at 833-346-4652 or reach out directly. We read everything.
-        </div>
-      </div>
-      <div class="entry-footer">
-        <span class="entry-footer-note">First post — more updates coming regularly</span>
-        <span class="entry-footer-sig">— The Emergency Cleanings Team</span>
-      </div>
-    </article>
-
-    <!-- ─────────────────────────────────────────────────────────────
-         NEW ENTRIES GO HER
+  <!-- ENTRIES FE
