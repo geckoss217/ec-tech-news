@@ -95,11 +95,15 @@
       pointer-events: none;
     }
     .page-hero-inner {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 48px;
     }
+    .page-hero-text { flex: 1; min-width: 0; }
     .page-hero-badge {
       display: inline-block;
       background: rgba(254,242,46,0.15);
@@ -121,11 +125,51 @@
       margin-bottom: 14px;
     }
     .page-hero h1 span { color: var(--yellow); }
-    .page-hero p {
+    .page-hero-text > p {
       font-size: 17px;
       color: rgba(255,255,255,0.75);
-      max-width: 560px;
+      max-width: 520px;
     }
+
+    /* HERO APPLY CTA */
+    .page-hero-cta {
+      flex-shrink: 0;
+      width: 300px;
+      background: rgba(255,255,255,0.07);
+      border: 2px solid rgba(255,255,255,0.18);
+      border-radius: 20px;
+      padding: 32px 28px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+    .page-hero-cta h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .page-hero-cta p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .btn-yellow {
+      background: var(--yellow);
+      color: var(--dark-blue);
+      padding: 13px 28px;
+      border-radius: 9999px;
+      font-weight: 800;
+      font-size: 15px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.2s, transform 0.1s;
+      width: 100%;
+    }
+    .btn-yellow:hover { opacity: 0.9; transform: translateY(-2px); }
 
     /* MAIN LAYOUT */
     .news-layout {
@@ -241,42 +285,6 @@
     .filter-pill:not(.all).active { border-color: currentColor; background: rgba(0,0,0,0.04); }
     .filter-pill:hover { transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
 
-    /* APPLY CTA BAND */
-    .apply-band {
-      background: var(--yellow);
-      border-radius: 14px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-    }
-    .apply-band-text h3 {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--dark-blue);
-      margin-bottom: 2px;
-    }
-    .apply-band-text p {
-      font-size: 13px;
-      color: var(--dark-blue);
-      opacity: 0.7;
-    }
-    .btn-dark {
-      background: var(--dark-blue);
-      color: var(--white);
-      padding: 11px 24px;
-      border-radius: 9999px;
-      font-weight: 700;
-      font-size: 14px;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: background 0.2s, transform 0.1s;
-    }
-    .btn-dark:hover { background: #1a3260; transform: translateY(-2px); }
-
     .entry-number {
       font-size: 11px;
       font-weight: 700;
@@ -294,9 +302,7 @@
       margin-bottom: 0;
     }
 
-    .entry-body {
-      padding: 24px 32px 28px;
-    }
+    .entry-body { padding: 24px 32px 28px; }
     .entry-body p {
       font-size: 15px;
       color: #444;
@@ -304,10 +310,7 @@
       margin-bottom: 16px;
     }
     .entry-body p:last-child { margin-bottom: 0; }
-    .entry-body ul {
-      margin: 0 0 16px 0;
-      padding-left: 20px;
-    }
+    .entry-body ul { margin: 0 0 16px 0; padding-left: 20px; }
     .entry-body ul li {
       font-size: 15px;
       color: #444;
@@ -329,11 +332,6 @@
       border-left-color: #d4a000;
       color: #5a3e00;
     }
-    .entry-highlight.red {
-      background: rgba(226,38,88,0.07);
-      border-left-color: var(--red);
-      color: #7a0020;
-    }
     .entry-footer {
       padding: 16px 32px;
       background: var(--light-gray);
@@ -342,29 +340,18 @@
       align-items: center;
       justify-content: space-between;
     }
-    .entry-footer-note {
-      font-size: 12px;
-      color: #888;
-    }
-    .entry-footer-sig {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--dark-blue);
-    }
+    .entry-footer-note { font-size: 12px; color: #888; }
+    .entry-footer-sig { font-size: 12px; font-weight: 600; color: var(--dark-blue); }
 
     /* SIDEBAR */
     .sidebar { display: flex; flex-direction: column; gap: 28px; }
-
     .sidebar-card {
       background: var(--white);
       border: 1.5px solid var(--mid-gray);
       border-radius: 16px;
       overflow: hidden;
     }
-    .sidebar-card-header {
-      background: var(--dark-blue);
-      padding: 16px 20px;
-    }
+    .sidebar-card-header { background: var(--dark-blue); padding: 16px 20px; }
     .sidebar-card-header h3 {
       font-size: 13px;
       font-weight: 700;
@@ -384,17 +371,8 @@
       gap: 8px;
     }
     .archive-list li:last-child { border-bottom: none; padding-bottom: 0; }
-    .archive-date {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--dark-blue);
-    }
-    .archive-title {
-      font-size: 12px;
-      color: #666;
-      line-height: 1.4;
-      flex: 1;
-    }
+    .archive-date { font-size: 13px; font-weight: 600; color: var(--dark-blue); }
+    .archive-title { font-size: 12px; color: #666; line-height: 1.4; flex: 1; }
 
     .cat-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .cat-pill {
@@ -412,39 +390,23 @@
       padding: 28px 22px;
       text-align: center;
     }
-    .sidebar-cta h3 {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .sidebar-cta p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    .btn-yellow {
+    .sidebar-cta h3 { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 10px; }
+    .sidebar-cta p { font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; line-height: 1.6; }
+    .btn-yellow-sm {
       background: var(--yellow);
       color: var(--dark-blue);
       padding: 12px 24px;
       border-radius: 9999px;
       font-weight: 700;
       font-size: 14px;
-      border: none;
-      cursor: pointer;
       text-decoration: none;
       display: inline-block;
       transition: opacity 0.2s, transform 0.1s;
     }
-    .btn-yellow:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-yellow-sm:hover { opacity: 0.9; transform: translateY(-2px); }
 
     /* FOOTER */
-    footer {
-      background: var(--dark-blue);
-      color: rgba(255,255,255,0.8);
-      padding: 48px 24px 28px;
-    }
+    footer { background: var(--dark-blue); color: rgba(255,255,255,0.8); padding: 48px 24px 28px; }
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -485,22 +447,9 @@
       gap: 20px;
       flex-wrap: wrap;
     }
-    .subscribe-bar-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--dark-blue);
-    }
-    .subscribe-bar-label span {
-      font-weight: 400;
-      color: #666;
-      margin-left: 6px;
-    }
-    .subscribe-options {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .subscribe-bar-label { font-size: 14px; font-weight: 600; color: var(--dark-blue); }
+    .subscribe-bar-label span { font-weight: 400; color: #666; margin-left: 6px; }
+    .subscribe-options { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
     .subscribe-btn {
       display: inline-flex;
       align-items: center;
@@ -513,20 +462,15 @@
       transition: all 0.2s;
       white-space: nowrap;
     }
-    .subscribe-btn.rss {
-      background: #f26522;
-      color: var(--white);
-    }
+    .subscribe-btn.rss { background: #f26522; color: var(--white); }
     .subscribe-btn.rss:hover { background: #d4541a; transform: translateY(-1px); }
-    .subscribe-btn.email {
-      background: var(--white);
-      color: var(--dark-blue);
-      border: 2px solid var(--dark-blue);
-    }
+    .subscribe-btn.email { background: var(--white); color: var(--dark-blue); border: 2px solid var(--dark-blue); }
     .subscribe-btn.email:hover { background: var(--dark-blue); color: var(--white); transform: translateY(-1px); }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
+      .page-hero-inner { flex-direction: column; gap: 32px; }
+      .page-hero-cta { width: 100%; max-width: 400px; }
       .news-layout { grid-template-columns: 1fr; }
       .sidebar { display: none; }
       .page-hero h1 { font-size: 30px; }
@@ -545,7 +489,7 @@
 <!-- HEADER -->
 <header>
   <div class="header-inner">
-    <a href="https://emergencycleanings.com" class="logo" style="margin: 0; gap: 0; flex-shrink: 0; text-decoration: none;">
+    <a href="https://emergencycleanings.com" style="margin: 0; gap: 0; flex-shrink: 0; text-decoration: none;">
       <img src="https://emergencycleanings.com/wp-content/uploads/2022/07/Final-logo-for-buyer-png.png" alt="Emergency Cleanings Logo" style="height: 75px; width: auto;" />
     </a>
     <div style="flex: 1; text-align: center;">
@@ -561,9 +505,16 @@
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="page-hero-badge">&#128226; Official Updates</div>
-    <h1>Tech <span>News &amp; Updates</span></h1>
-    <p>The latest from Emergency Cleanings &mdash; policy changes, pay updates, network milestones, and everything else you need to know as part of our tech network.</p>
+    <div class="page-hero-text">
+      <div class="page-hero-badge">&#128226; Official Updates</div>
+      <h1>Tech <span>News &amp; Updates</span></h1>
+      <p>The latest from Emergency Cleanings &mdash; policy changes, pay updates, network milestones, and everything else you need to know as part of our tech network.</p>
+    </div>
+    <div class="page-hero-cta">
+      <h3>Not on the network yet?</h3>
+      <p>Join hundreds of independent techs already earning with Emergency Cleanings.</p>
+      <a href="https://emergencycleanings.com/tech-page/" class="btn-yellow">Apply to Join &rarr;</a>
+    </div>
   </div>
 </section>
 
@@ -588,15 +539,6 @@
 
 <!-- MAIN CONTENT -->
 <div class="news-layout">
-
-  <!-- APPLY CTA -->
-  <div class="apply-band">
-    <div class="apply-band-text">
-      <h3>Not on the network yet?</h3>
-      <p>Join hundreds of independent techs already earning with Emergency Cleanings.</p>
-    </div>
-    <a href="https://emergencycleanings.com/tech-page/" class="btn-dark">Apply to Join &rarr;</a>
-  </div>
 
   <!-- CATEGORY FILTER -->
   <div class="filter-bar" id="filterBar">
@@ -722,7 +664,7 @@
     <div class="sidebar-cta">
       <h3>Not on the network yet?</h3>
       <p>Join hundreds of independent techs already earning with Emergency Cleanings.</p>
-      <a href="https://emergencycleanings.com/tech-page/" class="btn-yellow">Apply to Join &rarr;</a>
+      <a href="https://emergencycleanings.com/tech-page/" class="btn-yellow-sm">Apply to Join &rarr;</a>
     </div>
 
     <div class="sidebar-card">
@@ -779,7 +721,6 @@
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       const filter = pill.dataset.filter;
-
       pills.forEach(p => {
         if (p.dataset.filter === 'all') {
           p.classList.toggle('inactive', filter !== 'all');
@@ -787,7 +728,6 @@
           p.classList.toggle('active', p === pill && filter !== 'all');
         }
       });
-
       feed.querySelectorAll('article.entry-card').forEach(card => {
         if (filter === 'all' || card.dataset.category === filter || card.classList.contains('pinned')) {
           card.style.display = '';
