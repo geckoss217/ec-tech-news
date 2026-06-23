@@ -61,12 +61,16 @@
     .entry-date { font-size: 13px; font-weight: 600; color: var(--blue); letter-spacing: 0.3px; }
     .entry-dot { color: var(--mid-gray); font-size: 10px; }
     .entry-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 9999px; }
-    .tag-announcement { background: rgba(47,100,231,0.12); color: var(--blue); }
-    .tag-pay { background: rgba(47,160,0,0.12); color: #1d8a00; }
-    .tag-ops { background: rgba(226,38,88,0.12); color: var(--red); }
-    .tag-policy { background: rgba(212,160,0,0.15); color: #a07800; }
-    .tag-milestone { background: rgba(100,50,200,0.12); color: #5a2fbf; }
-    .tag-opportunity { background: rgba(0,150,136,0.12); color: #00796b; }
+
+    /* TAG COLORS — 8 categories */
+    .tag-announcement  { background: rgba(47,100,231,0.12);  color: var(--blue); }
+    .tag-financial     { background: rgba(47,160,0,0.12);    color: #1d8a00; }
+    .tag-ops           { background: rgba(226,38,88,0.12);   color: var(--red); }
+    .tag-policy        { background: rgba(212,160,0,0.15);   color: #a07800; }
+    .tag-milestone     { background: rgba(100,50,200,0.12);  color: #5a2fbf; }
+    .tag-opportunity   { background: rgba(0,150,136,0.12);   color: #00796b; }
+    .tag-ecteam        { background: rgba(0,172,193,0.12);   color: #006064; }
+    .tag-client        { background: rgba(245,124,0,0.12);   color: #bf360c; }
 
     /* PINNED */
     .entry-card.pinned { border-color: #d4a000; box-shadow: 0 4px 20px rgba(212,160,0,0.15); }
@@ -114,16 +118,18 @@
       user-select: none;
       text-align: left;
     }
-    .filter-pill.all { background: var(--dark-blue); color: var(--white); border-color: var(--dark-blue); }
-    .filter-pill.all.inactive { background: var(--light-gray); color: var(--dark-blue); border-color: var(--mid-gray); }
-    .filter-pill[data-filter="announcement"] { background: rgba(47,100,231,0.08); color: var(--blue); border-color: rgba(47,100,231,0.2); }
-    .filter-pill[data-filter="pay"] { background: rgba(47,160,0,0.08); color: #1d8a00; border-color: rgba(47,160,0,0.2); }
-    .filter-pill[data-filter="ops"] { background: rgba(226,38,88,0.08); color: var(--red); border-color: rgba(226,38,88,0.2); }
-    .filter-pill[data-filter="policy"] { background: rgba(212,160,0,0.1); color: #a07800; border-color: rgba(212,160,0,0.3); }
-    .filter-pill[data-filter="milestone"] { background: rgba(100,50,200,0.08); color: #5a2fbf; border-color: rgba(100,50,200,0.2); }
-    .filter-pill[data-filter="opportunity"] { background: rgba(0,150,136,0.08); color: #00796b; border-color: rgba(0,150,136,0.2); }
+    .filter-pill.all                          { background: var(--dark-blue); color: var(--white); border-color: var(--dark-blue); }
+    .filter-pill.all.inactive                 { background: var(--light-gray); color: var(--dark-blue); border-color: var(--mid-gray); }
+    .filter-pill[data-filter="announcement"]  { background: rgba(47,100,231,0.08);  color: var(--blue);    border-color: rgba(47,100,231,0.2); }
+    .filter-pill[data-filter="financial"]     { background: rgba(47,160,0,0.08);    color: #1d8a00;        border-color: rgba(47,160,0,0.2); }
+    .filter-pill[data-filter="ops"]           { background: rgba(226,38,88,0.08);   color: var(--red);     border-color: rgba(226,38,88,0.2); }
+    .filter-pill[data-filter="policy"]        { background: rgba(212,160,0,0.10);   color: #a07800;        border-color: rgba(212,160,0,0.3); }
+    .filter-pill[data-filter="milestone"]     { background: rgba(100,50,200,0.08);  color: #5a2fbf;        border-color: rgba(100,50,200,0.2); }
+    .filter-pill[data-filter="opportunity"]   { background: rgba(0,150,136,0.08);   color: #00796b;        border-color: rgba(0,150,136,0.2); }
+    .filter-pill[data-filter="ecteam"]        { background: rgba(0,172,193,0.08);   color: #006064;        border-color: rgba(0,172,193,0.2); }
+    .filter-pill[data-filter="client"]        { background: rgba(245,124,0,0.08);   color: #bf360c;        border-color: rgba(245,124,0,0.2); }
     .filter-pill.active { font-weight: 800; box-shadow: 0 2px 8px rgba(0,0,0,0.12); transform: translateX(3px); }
-    .filter-pill:hover { transform: translateX(3px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .filter-pill:not(.all):hover { transform: translateX(3px); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
     .filter-pill.all:hover { background: #1a3260; color: var(--white); }
 
     .sidebar-cta { background: linear-gradient(135deg, var(--dark-blue), #1a3260); border-radius: 16px; padding: 28px 22px; text-align: center; }
@@ -229,7 +235,6 @@
 <!-- MAIN CONTENT -->
 <div class="news-layout">
 
-  <!-- LEFT: entries feed -->
   <div class="main-col">
     <div class="entries-feed" id="entriesFeed">
 
@@ -241,7 +246,7 @@
             <div class="entry-date-row">
               <span class="entry-date">Month DD, YYYY</span>
               <span class="entry-dot">&#9679;</span>
-              <span class="entry-tag tag-CATEGORY">Category</span>
+              <span class="entry-tag tag-CATEGORY">Category Label</span>
             </div>
             <h2 class="entry-title">Post Title Here</h2>
           </div>
@@ -254,7 +259,10 @@
         </div>
       </article>
 
-      Categories: tag-announcement / tag-pay / tag-ops / tag-policy / tag-milestone / tag-opportunity
+      data-category values:
+        announcement / financial / ops / policy / milestone / opportunity / ecteam / client
+      tag- classes:
+        tag-announcement / tag-financial / tag-ops / tag-policy / tag-milestone / tag-opportunity / tag-ecteam / tag-client
       -->
 
       <!-- PINNED ENTRY 001 -->
@@ -278,11 +286,13 @@
           </div>
           <p>Here's what you can expect from these updates going forward:</p>
           <ul>
-            <li><strong>Pay &amp; Earnings</strong> &mdash; any changes to job rates, payment cycles, or bonus structures</li>
+            <li><strong>Financial Info</strong> &mdash; any changes to job rates, payment cycles, or bonus structures</li>
             <li><strong>Policy Updates</strong> &mdash; changes to how jobs are assigned, completed, or reported</li>
             <li><strong>Network Growth</strong> &mdash; new markets, new job types, and milestones we hit together</li>
             <li><strong>Opportunities</strong> &mdash; premium jobs, certifications, and ways to earn more</li>
             <li><strong>Operations</strong> &mdash; scheduling, dispatch, and process improvements that affect your day-to-day</li>
+            <li><strong>EC Team</strong> &mdash; updates from leadership, team news, and company direction</li>
+            <li><strong>Client Relations</strong> &mdash; how we work with clients and what that means for you on-site</li>
           </ul>
           <p>We started this network to build something that actually works for independent techs &mdash; reliable jobs, consistent pay, real support. This page is part of that commitment. We'll be transparent, direct, and timely.</p>
           <div class="entry-highlight yellow">
@@ -298,26 +308,26 @@
     </div>
   </div>
 
-  <!-- RIGHT: sidebar -->
+  <!-- SIDEBAR -->
   <aside class="sidebar">
 
-    <!-- Filter by category -->
     <div class="sidebar-card">
       <div class="sidebar-card-header"><h3>&#127968; Filter by Type</h3></div>
       <div class="sidebar-card-body">
         <div class="filter-pill-list">
           <span class="filter-pill all" data-filter="all">All Updates</span>
           <span class="filter-pill" data-filter="announcement">Announcement</span>
-          <span class="filter-pill" data-filter="pay">Pay &amp; Earnings</span>
+          <span class="filter-pill" data-filter="financial">Financial Info</span>
           <span class="filter-pill" data-filter="ops">Operations</span>
           <span class="filter-pill" data-filter="policy">Policy</span>
           <span class="filter-pill" data-filter="milestone">Milestone</span>
           <span class="filter-pill" data-filter="opportunity">Opportunity</span>
+          <span class="filter-pill" data-filter="ecteam">EC Team</span>
+          <span class="filter-pill" data-filter="client">Client Relations</span>
         </div>
       </div>
     </div>
 
-    <!-- Recent updates -->
     <div class="sidebar-card">
       <div class="sidebar-card-header"><h3>&#128197; Recent Updates</h3></div>
       <div class="sidebar-card-body">
@@ -333,14 +343,12 @@
       </div>
     </div>
 
-    <!-- CTA -->
     <div class="sidebar-cta">
       <h3>Not on the network yet?</h3>
       <p>Join hundreds of independent techs already earning with Emergency Cleanings.</p>
       <a href="https://emergencycleanings.com/tech-page/" class="btn-yellow-sm">Apply to Join &rarr;</a>
     </div>
 
-    <!-- Contact -->
     <div class="sidebar-card">
       <div class="sidebar-card-header"><h3>&#128222; Contact Dispatch</h3></div>
       <div class="sidebar-card-body">
@@ -389,7 +397,6 @@
 <script>
   const pills = document.querySelectorAll('.filter-pill');
   const feed = document.getElementById('entriesFeed');
-
   pills.forEach(pill => {
     pill.addEventListener('click', () => {
       const filter = pill.dataset.filter;
@@ -401,7 +408,6 @@
         }
       });
       if (filter !== 'all') pill.classList.add('active');
-
       feed.querySelectorAll('article.entry-card').forEach(card => {
         if (filter === 'all' || card.dataset.category === filter || card.classList.contains('pinned')) {
           card.style.display = '';
