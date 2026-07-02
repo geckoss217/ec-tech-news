@@ -181,6 +181,11 @@
     /* VIDEO EMBED */
     .video-embed { position: relative; width: 100%; margin: 20px 0; border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 16/9; }
     .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    /* IMAGE GRID */
+    .entry-image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 20px 0; }
+    .entry-image-grid img { width: 100%; border-radius: 10px; border: 1.5px solid var(--mid-gray); display: block; }
+    .entry-image-single img { width: 100%; border-radius: 10px; border: 1.5px solid var(--mid-gray); display: block; margin: 20px 0; }
   </style>
 </head>
 <body>
@@ -359,6 +364,37 @@
         </div>
         <div class="entry-footer">
           <span class="entry-footer-note">Market expansion</span>
+          <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
+        </div>
+      </article>
+
+
+      <!-- ENTRY #021 -->
+      <article class="entry-card" data-category="ops">
+        <div class="entry-header">
+          <div class="entry-meta">
+            <div class="entry-date-row">
+              <span class="entry-date">June 15, 2026</span>
+              <span class="entry-dot">&#9679;</span>
+              <span class="entry-tag tag-ops">Operations</span>
+            </div>
+            <h2 class="entry-title">PPE &amp; Essential Equipment Guide</h2>
+          </div>
+          <div class="entry-number">#021</div>
+        </div>
+        <div class="entry-body">
+          <p>Many of our jobs require proper personal protective equipment. Every job is unique, but our techs should be prepared with these items at a minimum before arriving on site.</p>
+          <div class="entry-image-grid">
+            <img src="/images/OPS1.png" alt="PPE and Essential Equipment Guide" />
+            <img src="/images/OPS2.png" alt="PPE Equipment Reference" />
+            <img src="/images/OPS3.png" alt="Essential Safety Gear" />
+          </div>
+          <div class="entry-highlight">
+            If you have questions about required equipment for a specific job type, please reach out to dispatch before heading to the job site. We&rsquo;re here to make sure you&rsquo;re always set up for success.
+          </div>
+        </div>
+        <div class="entry-footer">
+          <span class="entry-footer-note">Operations update &mdash; equipment standards</span>
           <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
         </div>
       </article>
