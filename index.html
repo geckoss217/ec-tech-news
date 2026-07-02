@@ -269,6 +269,51 @@
         tag-announcement / tag-financial / tag-ops / tag-policy / tag-milestone / tag-opportunity / tag-ecteam / tag-client
       -->
 
+
+
+      <!-- PINNED ENTRY 001 -->
+      <article class="entry-card pinned" data-category="announcement">
+        <div class="entry-header">
+          <div class="entry-meta">
+            <div class="pinned-bar"><span>&#128204;</span> Pinned Post</div>
+            <div class="entry-date-row">
+              <span class="entry-date">June 21, 2026</span>
+              <span class="entry-dot">&#9679;</span>
+              <span class="entry-tag tag-announcement">Announcement</span>
+            </div>
+            <h2 class="entry-title">Welcome to the EC Tech Updates Page</h2>
+          </div>
+          <div class="entry-number">#001</div>
+        </div>
+        <div class="entry-body">
+          <p>We're launching this page as a dedicated home for everything you need to stay informed as part of the Emergency Cleanings tech network. Whether it's a policy update, a pay change, a new opportunity, or news about where the network is headed &mdash; you'll find it here first.</p>
+          <div class="video-embed">
+            <iframe src="https://app.heygen.com/embeds/488594d5493249fab2de0a08cc1a6475" title="Tech News Welcome" frameborder="0" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
+          </div>
+          <div class="entry-highlight">
+            <strong>Bookmark this page.</strong> This is now the official source for network updates. We'll post here before pushing anything out by phone or text.
+          </div>
+          <p>Here's what you can expect from these updates going forward:</p>
+          <ul>
+            <li><strong>Financial Info</strong> &mdash; any changes to job rates, payment cycles, or bonus structures</li>
+            <li><strong>Policy Updates</strong> &mdash; changes to how jobs are assigned, completed, or reported</li>
+            <li><strong>Network Growth</strong> &mdash; new markets, new job types, and milestones we hit together</li>
+            <li><strong>Opportunities</strong> &mdash; premium jobs, certifications, and ways to earn more</li>
+            <li><strong>Operations</strong> &mdash; scheduling, dispatch, and process improvements that affect your day-to-day</li>
+            <li><strong>EC Team</strong> &mdash; updates from leadership, team news, and company direction</li>
+            <li><strong>Client Relations</strong> &mdash; how we work with clients and what that means for you on-site</li>
+          </ul>
+          <p>We started this network to build something that actually works for independent techs &mdash; reliable jobs, consistent pay, real support. This page is part of that commitment. We'll be transparent, direct, and timely.</p>
+          <div class="entry-highlight yellow">
+            Got feedback or something you want us to address in a future update? Call dispatch at 833-346-4652 or reach out directly. We read everything.
+          </div>
+        </div>
+        <div class="entry-footer">
+          <span class="entry-footer-note">First post &mdash; more updates coming regularly</span>
+          <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
+        </div>
+      </article>
+
       
       <!-- ENTRY #020 -->
       <article class="entry-card" data-category="ecteam">
@@ -341,49 +386,6 @@
         <div class="entry-footer">
           <span class="entry-footer-note">From leadership</span>
           <span class="entry-footer-sig">&mdash; Emergency Cleanings</span>
-        </div>
-      </article>
-
-      <!-- PINNED ENTRY 001 -->
-      <article class="entry-card pinned" data-category="announcement">
-        <div class="entry-header">
-          <div class="entry-meta">
-            <div class="pinned-bar"><span>&#128204;</span> Pinned Post</div>
-            <div class="entry-date-row">
-              <span class="entry-date">June 21, 2026</span>
-              <span class="entry-dot">&#9679;</span>
-              <span class="entry-tag tag-announcement">Announcement</span>
-            </div>
-            <h2 class="entry-title">Welcome to the EC Tech Updates Page</h2>
-          </div>
-          <div class="entry-number">#001</div>
-        </div>
-        <div class="entry-body">
-          <p>We're launching this page as a dedicated home for everything you need to stay informed as part of the Emergency Cleanings tech network. Whether it's a policy update, a pay change, a new opportunity, or news about where the network is headed &mdash; you'll find it here first.</p>
-          <div class="video-embed">
-            <iframe src="https://app.heygen.com/embeds/488594d5493249fab2de0a08cc1a6475" title="Tech News Welcome" frameborder="0" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
-          </div>
-          <div class="entry-highlight">
-            <strong>Bookmark this page.</strong> This is now the official source for network updates. We'll post here before pushing anything out by phone or text.
-          </div>
-          <p>Here's what you can expect from these updates going forward:</p>
-          <ul>
-            <li><strong>Financial Info</strong> &mdash; any changes to job rates, payment cycles, or bonus structures</li>
-            <li><strong>Policy Updates</strong> &mdash; changes to how jobs are assigned, completed, or reported</li>
-            <li><strong>Network Growth</strong> &mdash; new markets, new job types, and milestones we hit together</li>
-            <li><strong>Opportunities</strong> &mdash; premium jobs, certifications, and ways to earn more</li>
-            <li><strong>Operations</strong> &mdash; scheduling, dispatch, and process improvements that affect your day-to-day</li>
-            <li><strong>EC Team</strong> &mdash; updates from leadership, team news, and company direction</li>
-            <li><strong>Client Relations</strong> &mdash; how we work with clients and what that means for you on-site</li>
-          </ul>
-          <p>We started this network to build something that actually works for independent techs &mdash; reliable jobs, consistent pay, real support. This page is part of that commitment. We'll be transparent, direct, and timely.</p>
-          <div class="entry-highlight yellow">
-            Got feedback or something you want us to address in a future update? Call dispatch at 833-346-4652 or reach out directly. We read everything.
-          </div>
-        </div>
-        <div class="entry-footer">
-          <span class="entry-footer-note">First post &mdash; more updates coming regularly</span>
-          <span class="entry-footer-sig">&mdash; The Emergency Cleanings Team</span>
         </div>
       </article>
 
@@ -477,6 +479,12 @@
 </footer>
 
 <script>
+  // Ensure pinned post is always first on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const feed = document.getElementById('entriesFeed');
+    const pinned = feed && feed.querySelector('article.entry-card.pinned');
+    if (pinned) feed.prepend(pinned);
+  });
   const pills = document.querySelectorAll('.filter-pill');
   const feed = document.getElementById('entriesFeed');
   pills.forEach(pill => {
@@ -497,6 +505,9 @@
           card.style.display = 'none';
         }
       });
+      // Always keep pinned post at the top
+      const pinned = feed.querySelector('article.entry-card.pinned');
+      if (pinned) feed.prepend(pinned);
     });
   });
 </script>
